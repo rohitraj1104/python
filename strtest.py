@@ -15,4 +15,8 @@ print(D)
 E =  "**".join(D)
 print(E)
 
+F = "__".join(D)
+print(F)
+
+
 
