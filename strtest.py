@@ -35,4 +35,11 @@ print("my name is : {} and I am {} years old and my weight is {}".format(A,30,83
 
 print(f"my name is {A} and I have {x} {y}")
 
-print(f"my name is {A.lower()} and I have {x.upper()} {y.replace("switch","router")})
+print(f"my name is {A.lower()} and I have {x.upper()} {y.replace('','**')}")
+
+#-------------------------
+mystring = "123456789"
+#we can print string in a range [start,stop,gap]
+print(mystring[1])
+print(mystring[::2])
+print(mystring[::3])
