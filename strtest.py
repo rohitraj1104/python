@@ -33,3 +33,6 @@ print("my name is : %s and I am %d years old and my weight is %f" % (A,30,83.5))
 print("my name is : {} and I am {} years old and my weight is {}".format(A,30,83.5))
 #=================================
 
+print(f"my name is {A} and I have {x} {y}")
+
+print(f"my name is {A.lower()} and I have {x.upper()} {y.replace("switch","router")})
