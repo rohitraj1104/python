@@ -1,0 +1,11 @@
+#regex Tips   Matches the beginning of a line.
+
+$ Matches the end of a line.
+
+\A Matches the beginning of the string.
+
+\z Matches the end of the string.
+
+\Z Matches the end of the string unless the string ends with a "\n", in which case it matches just before the "\n".
+
+So, use \A and lowercase \z. If you use \Z someone could sneak in a newline character. This is not dangerous I think, but might screw up algorithms that assume that there's no whitespace in the string. Depending on your regex and string-length constraints someone could use an invisible name with just a newline character.
