@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+
+import requests
+
+integration_list = [
+  {
+    "id": 22,
+    "name": "if01c.ams01"
+  },
+  {
+    "id": 28,
+    "name": "PALO-DAL13-FW-01"
+  },
+  {
+    "id": 34,
+    "name": "PALO-FRA04-FW-01"
+  },
+  {
+    "id": 39,
+    "name": "PALO-LON05-FW-01"
+  },
+  {
+    "id": 29,
+    "name": "PALO-CHE01-FW-01"
+  },
+  {
+    "id": 49,
+    "name": "PALO-HKG02-FW-01"
+  },
+  {
+    "id": 45,
+    "name": "PALO-LON02-FW-01"
+  },
+  {
+    "id": 44,
+    "name": "if01d.dal05"
+  },
+  {
+    "id": 48,
+    "name": "PALO-AMS03-FW-01"
+  },
+  {
+    "id": 46,
+    "name": "PALO-FRA02-FW-01"
+  },
+  {
+    "id": 15,
+    "name": "PALO-SEO01-FW-01"
+  },
+  {
+    "id": 42,
+    "name": "PALO-TOK02-FW-01"
+  },
+  {
+    "id": 26,
+    "name": "PALO-SYD04-FW-01"
+  },
+  {
+    "id": 16,
+    "name": "if01c.sjc01"
+  },
+  {
+    "id": 27,
+    "name": "PALO-LON04-FW-01"
+  },
+  {
+    "id": 41,
+    "name": "PALO-SJC04-FW-01"
+  },
+  {
+    "id": 19,
+    "name": "if01c.dal10"
+  },
+  {
+    "id": 10,
+    "name": "if01c.dal05"
+  },
+  {
+    "id": 36,
+    "name": "if01d.sjc01"
+  },
+  {
+    "id": 18,
+    "name": "PALO-WDC06-FW-01"
+  },
+  {
+    "id": 40,
+    "name": "PALO-MIL01-FW-01"
+  },
+  {
+    "id": 38,
+    "name": "PALO-MEX01-FW-01"
+  },
+  {
+    "id": 11,
+    "name": "PALO-WDC07-FW-01"
+  },
+  {
+    "id": 37,
+    "name": "PALO-LON06-FW-01"
+  },
+  {
+    "id": 20,
+    "name": "PALO-TOK04-FW-01"
+  },
+  {
+    "id": 30,
+    "name": "PALO-FRA05-FW-01"
+  },
+  {
+    "id": 14,
+    "name": "PALO-SYD01-FW-01"
+  },
+  {
+    "id": 25,
+    "name": "PALO-DAL12-FW-01"
+  },
+  {
+    "id": 43,
+    "name": "PALO-SJC03-FW-01"
+  },
+  {
+    "id": 33,
+    "name": "if01d.hou02"
+  },
+  {
+    "id": 23,
+    "name": "PALO-PAR01-FW-01"
+  },
+  {
+    "id": 13,
+    "name": "PALO-DAL11-FW-01"
+  },
+  {
+    "id": 17,
+    "name": "if01c.hou02"
+  },
+  {
+    "id": 35,
+    "name": "PALO-MON01-FW-01"
+  },
+  {
+    "id": 21,
+    "name": "PALO-TOK05-FW-01"
+  },
+  {
+    "id": 24,
+    "name": "PALO-OSL01-FW-01"
+  },
+  {
+    "id": 32,
+    "name": "if01d.sng01"
+  },
+  {
+    "id": 47,
+    "name": "PALO-DAL09-FW-01"
+  },
+  {
+    "id": 31,
+    "name": "PALO-SAO01-FW-01"
+  },
+  {
+    "id": 12,
+    "name": "PALO-SYD05-FW-01"
+  }
+]
+integration_list_1 = [ 22,28,34,39,29,49,45,44,48,46,15,42,26,16,27,41,19,10,36,18,40,38,11,37,20,30,14,25,43,33,23,13,17,35,21,24,32,47,31,12
+]
+
+def update_integration(int_id):
+
+    integrations_url = 'https://172.21.215.70/integrations/{0}'.format(int_id)
+
+    headers = {"Content-Type": "application/json", 'Authorization': 'Bearer tPVw5qTFZws1vWJyGs1c'}
+
+    data = {"integration_type": "PaloAltoIntegration",
+            "palo_alto_integration": {
+                "discovery_enabled": "true",
+                "password": "$wPq0*fGjCAj%d8G2L9",
+                "port": 443,
+                "protocol": "https",
+                "query_viewer_name": "Verodin Query Viewer",
+                "username": "seceng-verodin1"
+            }
+            }
+
+    r = requests.put(integrations_url, headers=headers, json=data, verify=False)
+    print(r.text)
+    print(r.status_code)
+
+
+def main():
+
+    for int_id in integration_list_1:
+        update_integration(int_id)
+
+
+if __name__ == '__main__':
+    main()
